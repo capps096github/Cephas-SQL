@@ -12,4 +12,4 @@ This is an SQL Cheatsheet containing the most commonly used SQL commands, rangin
 
   ***or***
 
-* **Whatsapp** **Xephas** at: 0758294212
+* **Whatsapp** **Xephas** at: [0758294212](tel:+256758294212)
