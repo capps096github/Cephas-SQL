@@ -1,0 +1,127 @@
+MySQL BASICS CHEATSHEET
+
+A) Creating and Viewing Your Table in SQL.
+
+A Table named "Students" is used in this Example
+
+STEP 1: Create a database
+Syntax: create database database_name;
+Example: create database Students;
+
+STEP 2: Use the database
+Syntax: use database_name;
+Example: use Students;
+
+Step 3: Create a Table in the Database
+Syntax: create table table_name(column_name datatype, column_name datatype, column_name datatype);
+Example: create table Students(id int, name varchar(20), age int, dob date);
+ 
+Step 3B: Create a table with default values
+Syntax: create table table_name(column_name datatype default value, column_name datatype default value, column_name datatype default value);
+Example: create table Students(id int default 1, name varchar(20) default "John", age int default 20, dob date default '1990-01-01');
+
+Step 3C: View all tables in the selected database
+Syntax: show tables;
+Example: show tables;
+
+Step 4: View the Created Table Fields (Atrributes)
+Syntax: describe table_name;
+Example: describe Students;
+
+B) Updating, Inserting and Modifying Data in a Table
+
+Step 1: Insert Data into the Table
+Syntax: insert into table_name(column_name, column_name, column_name) values(value, value, value);
+Example: insert into Students(id, name, age, dob) values(1, "John", 20, "2000-01-01");
+## NOTES:
+# Note: The values in the parentheses are the values that will be inserted into the table.
+# Note: The number of values in the parentheses must match the number of columns in the table.
+# Note: The values in the parentheses must be in the same order as the columns in the table.
+# Note: The values in the parentheses must be in the same datatype as the columns in the table.
+# Note: The date values must be in the format YYYY-MM-DD. e.g 2000-01-01 enclosed in quotes.
+# Note: All non-numeric values must be enclosed in quotes.
+
+Step 1B: Insert Multiple Values at Once
+Syntax: insert into table_name(column_name, column_name, column_name) values(value, value, value), (value, value, value), (value, value, value);
+Example: insert into Students(id, name, age, dob) values(1, "John", 20, "2000-01-01"), (2, "Jane", 21, "2000-01-02"), (3, "Jack", 22, "2000-01-03");
+
+
+
+
+
+Step 2: View the Inserted Data in the Table
+Syntax: select * from table_name;
+Example: select * from Students;
+
+Step 3: Add a Column to a table
+Syntax: alter table table_name add column column_name
+Example: alter table Students add column address varchar(20);
+
+Step 4: Delete a Column from a table
+Syntax: alter table table_name drop column column_name;
+Example: alter table Students drop column address;
+
+Step 5: Deleting Multiple Columns from a table
+Syntax: alter table table_name drop column column_name,drop column column_name,drop column column_name;
+Example: alter table Students drop column address, drop column age;
+
+Step 5: Update a Column in a table
+Syntax: update table_name set column_name = value where condition;
+Example: update Students set age = 21 where id = 1;
+
+Step 6: Adding a primary key to a table
+Syntax: alter table table_name add primary key(column_name);
+Example: alter table Students add primary key(id);
+
+Step 7: Adding a foreign key to a table
+Syntax: alter table table_name add foreign key(column_name) references reference_table_name(reference_column_name);
+Example: alter table Students add foreign key(id) references Course(CourseCode);
+
+C) Manipulating Rows in the Database
+
+Step 6: Delete a Row from a table
+Syntax: delete from table_name where condition;
+Example: delete from Students where id = 1;
+
+Step 7: Modify a Row in a table
+Syntax: update table_name set column_name = value where condition;
+Example: update Students set age = 21 where id = 1;
+
+Step 8: View the Modified Data in the Table
+Syntax: select * from table_name;
+Example: select * from Students;
+
+Step 9: Merge Tables
+Syntax: select * from table_name1 union select * from table_name2;
+Example: select * from Students union select * from Course;
+
+Step 10: Join Tables
+Syntax: select * from table_name1 inner join table_name2 on table_name1.column_name = table_name2.column_name;
+Example: select * from Students inner join Course on Students.id = Course.CourseCode;
+
+
+D) Deleting a Database and Table
+
+Step 8: Delete a Table
+Syntax: drop table table_name;
+Example: drop table Students;
+
+Step 9: Delete a Database
+Syntax: drop database database_name;
+Example: drop database Students;
+
+
+E) Creating a Materialized View
+Syntax: create view view_name as select * from table_name;
+Example: create view StudentsView as select * from Students;
+
+F) View the Materialized views in the database
+Syntax: show tables;
+
+
+FOR MORE INFORMATION:
+Visit https://www.w3schools.com/sql/
+or
+Whatsapp Xephas at: 0758294212
+
+IST120
