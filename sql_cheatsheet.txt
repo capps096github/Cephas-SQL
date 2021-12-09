@@ -44,6 +44,7 @@ Example: insert into Students(id, name, age, dob) values(1, "John", 20, "2000-01
 Step 1B: Insert Multiple Values at Once
 Syntax: insert into table_name(column_name, column_name, column_name) values(value, value, value), (value, value, value), (value, value, value);
 Example: insert into Students(id, name, age, dob) values(1, "John", 20, "2000-01-01"), (2, "Jane", 21, "2000-01-02"), (3, "Jack", 22, "2000-01-03");
+or
 
 
 
@@ -53,9 +54,27 @@ Step 2: View the Inserted Data in the Table
 Syntax: select * from table_name;
 Example: select * from Students;
 
+Step 2B: Renaming a colum in a query
+Syntax: select column_name, column_name2 as newName, column_name3 as newName, (calcultaion) as "newColumnName" from table;
+Example:select title, price as x, dailyRental as y, (price+dailyRental) as "(x+y)" from video;
+
 Step 3: Add a Column to a table
 Syntax: alter table table_name add column column_name
 Example: alter table Students add column address varchar(20);
+
+Step 3B: Add data to a given column
+Syntax: insert into table_name(column_name) values(value);
+Example: insert into Students(address) values("123 Main St.");
+
+Step 3C: Add multiple values to a given column in a given table
+Syntax: insert into table_name(column_name) values(value), (value), (value);
+Example: insert into Students(address) values("123 Main St."), ("456 Main St."), ("789 Main St.");
+
+Step 3D: Add multiple values to a given column in a table without affecting other columns
+Syntax: insert into table_name(column_name) values(value), (value), (value) on duplicate key update column_name = values(column_name);
+Example: insert into Students(address) values("123 Main St."), ("456 Main St."), ("789 Main St.") on duplicate key update address = values(address);
+
+
 
 Step 4: Delete a Column from a table
 Syntax: alter table table_name drop column column_name;
@@ -117,6 +136,23 @@ Example: create view StudentsView as select * from Students;
 
 F) View the Materialized views in the database
 Syntax: show tables;
+
+G)Using Subqueries in SQL statements
+Syntax: 
+
+H) Get the SQL host name and port number
+Syntax: show variables like '%hostname%';
+Example: show variables like '%hostname%';
+
+I) Get the SQL server version
+Syntax: show variables like '%version%';
+
+J) Get the MySQL user to authenticate as
+Syntax: show variables like '%user%';
+
+K) Get the MySQL password to authenticate with
+Syntax: show variables like '%password%';
+
 
 
 FOR MORE INFORMATION:
