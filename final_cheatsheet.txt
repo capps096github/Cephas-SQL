@@ -1,0 +1,65 @@
+2: Creating a table
+Syntax: CREATE TABLE <table_name> ( <column_name> <data_type> [NOT NULL] [UNIQUE] [PRIMARY KEY] [AUTO_INCREMENT] );
+Example: CREATE TABLE users ( id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY (id) );
+
+
+3: Creating a foreign key
+Syntax: ALTER TABLE <table_name> ADD COLUMN <column_name> <data_type>,ADD FOREIGN KEY (<column_name>) REFERENCES <foreign_table_name> (<foreign_column_name>);
+Example: ALTER TABLE users ADD COLUMN users_fk int,ADD FOREIGN KEY(users_fk) REFERENCES employee(emp_id);
+
+4: Add a column using ALTER
+Syntax: ALTER TABLE <table_name> ADD COLUMN <column_name> <data_type>;
+Example: ALTER TABLE users ADD COLUMN age int;
+
+5: Add multiple columns using the alter statement
+
+7. Modify multiple columns 
+Example: alter table users modify age varchar(3), modify fcc varchar(20), modify users_fk decimal(4,2);
+
+8. Drop a column using ALTER
+Syntax: ALTER TABLE <table_name> DROP COLUMN <column_name>;
+Example: ALTER TABLE users DROP COLUMN age;
+
+9. Rename a column in a table
+Syntax: ALTER TABLE <table_name> CHANGE COLUMN <old_column_name> <new_column_name> <data_type>;
+Example: ALTER TABLE users CHANGE COLUMN age age_new int;
+
+10. Rename a table
+Syntax: ALTER TABLE <old_table_name> RENAME TO <new_table_name>;
+Example: ALTER TABLE users RENAME TO users_new;
+
+11. Drop a table
+Syntax: DROP TABLE <table_name>;
+Example: DROP TABLE users;
+
+12. Drop multiple tables
+Syntax: DROP TABLE <table_name1>,<table_name2>,<table_name3>;
+Example: DROP TABLE users,employee,department;
+
+13 - 15
+
+16. Put a NOT NULL constraint on the table
+Syntax: ALTER TABLE <table_name> MODIFY <column_name> <data_type> NOT NULL;
+Example: ALTER TABLE users MODIFY age int NOT NULL;
+
+17. create a UNIQUE constraint
+Syntax: ALTER TABLE <table_name> ADD UNIQUE(column_name);
+Example: ALTER TABLE users ADD UNIQUE(name);
+
+17b.To name a UNIQUE constraint, and to define a UNIQUE constraint on multiple columns, use the following SQL syntax:
+Syntax: ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name> UNIQUE(column_name1, column_name2, ...);
+Example: ALTER TABLE users ADD CONSTRAINT unique_name UNIQUE(name, email);
+
+
+17b. Drop the UNIQUE constraint
+Syntax: ALTER TABLE <table_name> DROP INDEX <index_name>;
+Example: ALTER TABLE users DROP INDEX name_id;
+
+18. create a PRIMARY KEY constraint
+Syntax: ALTER TABLE <table_name> ADD PRIMARY KEY (<column_name>);
+Example: ALTER TABLE users ADD PRIMARY KEY (id);
+
+18b. create a  FOREIGN KEY constraint
+Syntax: ALTER TABLE <table_name> ADD FOREIGN KEY (<column_name>) REFERENCES <foreign_table_name> (<foreign_column_name>);
+Example: ALTER TABLE users ADD FOREIGN KEY (users_fk) int REFERENCES employee(emp_id);
+

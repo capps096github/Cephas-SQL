@@ -66,6 +66,12 @@ Step 3B: Add data to a given column
 Syntax: insert into table_name(column_name) values(value);
 Example: insert into Students(address) values("123 Main St.");
 
+Step 3B i: add multiple columns to a table
+Syntax: alter table table_name add column column_name,add column column_name2,add column column_name3;
+Example: alter table Students add column address varchar(20), add column city varchar(20), add column state varchar(20);
+
+
+
 Step 3C: Add multiple values to a given column in a given table
 Syntax: insert into table_name(column_name) values(value), (value), (value);
 Example: insert into Students(address) values("123 Main St."), ("456 Main St."), ("789 Main St.");
@@ -92,9 +98,21 @@ Step 6: Adding a primary key to a table
 Syntax: alter table table_name add primary key(column_name);
 Example: alter table Students add primary key(id);
 
-Step 7: Adding a foreign key to a table
+Step 6B: Remove a primary key from a table
+Syntax: alter table table_name drop primary key;
+Example: alter table Students drop primary key;
+
+
+Step 7: Adding a foreign key to a table that already has the column_name in it (if the column exists)
 Syntax: alter table table_name add foreign key(column_name) references reference_table_name(reference_column_name);
 Example: alter table Students add foreign key(id) references Course(CourseCode);
+
+Step 7b: Adding a column as a foreign key to a Table
+Syntax: alter table table_name add column column_name foreign key(reference_column_name) references reference_table_name(reference_column_name);
+Example: alter table Students add column id int foreign key(id) references Course(CourseCode);
+
+
+
 
 C) Manipulating Rows in the Database
 
@@ -153,10 +171,21 @@ Syntax: show variables like '%user%';
 K) Get the MySQL password to authenticate with
 Syntax: show variables like '%password%';
 
+L) Reading data from an SQL file on the PC
+Syntax: LOAD DATA INFILE 'filename.sql' INTO TABLE table_name;
+Example: LOAD DATA INFILE 'filename.sql' INTO TABLE table_name;
 
+
+
+
+ and putting it into a database
+Syntax: LOAD DATA INFILE 'filename.sql' INTO TABLE table_name FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
+Example: LOAD DATA INFILE 'filename.sql' INTO TABLE table_name FIELDS TERMINATED BY ',' ENCLOSED BY '"' LINES TERMINATED BY '\n';
 
 FOR MORE INFORMATION:
 Visit https://www.w3schools.com/sql/
 or
 Whatsapp Xephas at: 0758294212
+
+
 
