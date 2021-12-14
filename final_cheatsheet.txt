@@ -182,8 +182,17 @@ Example: DROP USER 'user1';
 Syntax: ALTER USER <username> IDENTIFIED BY <password>;
 Example: ALTER USER 'user1' IDENTIFIED BY 'user1';
 
-Rename a user
-Syntax: 
+27c. Change the the user name of a user
+Syntax: ALTER USER <old_username>@<host> IDENTIFIED BY <password> REQUIRE SSL;
+Example: ALTER USER 'user1'@'localhost' IDENTIFIED BY 'user1';
+
+27d. Display the currently logged in user
+Syntax: SELECT USER();
+Example: SELECT USER();
+
+27e. Log Into another user account
+Syntax: SET SESSION user=<username>;
+Example: SET SESSION user='user1';
 
 
 27c. Grant the select privilege user x in your data
