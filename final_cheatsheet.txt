@@ -63,3 +63,136 @@ Example: ALTER TABLE users ADD PRIMARY KEY (id);
 Syntax: ALTER TABLE <table_name> ADD FOREIGN KEY (<column_name>) REFERENCES <foreign_table_name> (<foreign_column_name>);
 Example: ALTER TABLE users ADD FOREIGN KEY (users_fk) int REFERENCES employee(emp_id);
 
+19. Create a user
+Syntax: CREATE USER <username> IDENTIFIED BY <password>;
+Example: CREATE USER 'user1' IDENTIFIED BY 'user1';
+
+20. Duplicate a table with a new name
+Syntax: CREATE TABLE <new_table_name> LIKE <old_table_name>;
+Example: CREATE TABLE users_new LIKE users;
+
+21. Copy values from one table and insert them into another table
+Syntax: INSERT INTO <new_table_name> SELECT * FROM <old_table_name>;
+Example: INSERT INTO users_new SELECT * FROM users;
+
+
+----------------------------------------------------
+
+22. Creating a view
+Syntax: CREATE VIEW <view_name> AS <select_statement>;
+Example: CREATE VIEW users_view AS SELECT * FROM users;
+
+22a. Display all values of a view
+Syntax: SELECT * FROM <view_name>;
+Example: SELECT * FROM users_view;
+
+22b. Display a specific value of a view
+Syntax: SELECT <column_name> FROM <view_name>;
+Example: SELECT name FROM users_view;
+
+22c. Make changes to a view
+Syntax: ALTER VIEW <view_name> AS <select_statement>;
+Example: ALTER VIEW users_view AS SELECT * FROM users;
+
+22d. update a view
+Syntax: UPDATE <view_name> SET <column_name> = <value>;
+Example: UPDATE users_view SET name = 'user1';
+
+22e. update a view using alter statement
+Syntax: ALTER VIEW <view_name> MODIFY <column_name> <data_type>;
+Example: ALTER VIEW users_view MODIFY name varchar(255);
+
+23. Describe a view
+Syntax: DESCRIBE <view_name>;
+Example: DESCRIBE users_view;
+
+23b. Drop a view
+Syntax: DROP VIEW <view_name>;
+Example: DROP VIEW users_view;
+
+----------------------------------------------------
+
+24. Adding a constraint to a table
+Syntax: ALTER TABLE <table_name> ADD CONSTRAINT <constraint_name> <constraint_type> (<column_name>);
+Example: ALTER TABLE users ADD CONSTRAINT unique_name UNIQUE(name);
+
+25. Dropping a constraint from a table
+Syntax: ALTER TABLE <table_name> DROP CONSTRAINT <constraint_name>;
+Example: ALTER TABLE users DROP CONSTRAINT unique_name;
+
+24b. Put a NOT NULL constraint on a table
+Syntax: ALTER TABLE <table_name> MODIFY <column_name> <data_type> NOT NULL;
+Example: ALTER TABLE users MODIFY age int NOT NULL;
+
+24c.Put a NOT NULL constraint on multiple columns of a table
+Syntax: ALTER TABLE <table_name> MODIFY <column_name1> <data_type1> NOT NULL, MODIFY <column_name2> <data_type2> NOT NULL;
+Example: ALTER TABLE users MODIFY age int NOT NULL, MODIFY fcc varchar(20) NOT NULL;
+
+25. create a UNIQUE constraint on a table
+Syntax: ALTER TABLE <table_name> ADD UNIQUE(column_name);
+Example: ALTER TABLE users ADD UNIQUE(name);
+
+
+----------------------------------------------------
+
+26. Create an index on any of the created tables
+Syntax: CREATE INDEX <index_name> ON <table_name> (<column_name>);
+Example: CREATE INDEX name_id ON users(name);
+
+26b. drop a UNIQUE constraint on a table
+Syntax: DROP INDEX <index_name> ON <table_name>;
+Example: DROP INDEX name_id ON users;
+
+26b. show all indexes on a table
+Syntax: SHOW INDEX FROM <table_name>;
+Example: SHOW INDEX FROM users;
+
+26c. Rename an index on a table
+Syntax: ALTER TABLE <table_name> RENAME INDEX <old_index_name> TO <new_index_name>;
+Example: ALTER TABLE users RENAME INDEX name_id TO name_id_new;
+
+
+----------------------------------------------------
+
+27. Create a user in a database
+Syntax: CREATE USER <username> IDENTIFIED BY <password>;
+Example: CREATE USER 'user1' IDENTIFIED BY 'user1';
+
+27i. Return all the users created
+Syntax: SELECT user FROM mysql.user;
+Example: SELECT user FROM mysql.user;
+
+27a. Grant privileges to a user
+Syntax: GRANT <privilege> ON <table_name> TO <username>;
+Example: GRANT SELECT ON users TO 'user1';
+
+27a-ii. Revoke privileges from a user
+Syntax: REVOKE <privilege> ON <table_name> FROM <username>;
+Example: REVOKE SELECT ON users FROM 'user1';
+
+27 b-i. show currently logged in user permissions
+Syntax: SHOW GRANTS FOR <username>;
+Example: SHOW GRANTS FOR 'user1';
+
+27b. Drop a user from a database
+Syntax: DROP USER <username>;
+Example: DROP USER 'user1';
+
+27b. change user's password
+Syntax: ALTER USER <username> IDENTIFIED BY <password>;
+Example: ALTER USER 'user1' IDENTIFIED BY 'user1';
+
+Rename a user
+Syntax: 
+
+
+27c. Grant the select privilege user x in your data
+Syntax: GRANT SELECT ON <table_name> TO <user_name>;
+Example: GRANT SELECT ON users TO user1;
+
+27d. change the current user to another user
+Syntax: SET SESSION sql_log_bin = 0;
+Example: SET SESSION sql_log_bin = 0;
+
+
+
